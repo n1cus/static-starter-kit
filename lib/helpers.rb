@@ -2,25 +2,33 @@ module Incredible
 
   module Helpers
 
-    def audio_web_paths
-      audio_files_by_type.map do |audio_path|
-        audio_path = Pathname.new(audio_path)
-        audio_path.relative_path_from(Pathname.new(public_path)).to_s
+    def audio_web_paths(&block)
+      audio_names = audio_files.map do |file|
+        audio_file = Pathname.new(file)
+        audio_extension = audio_file.extname
+        audio_name = audio_file.basename(audio_extension)
+      end.uniq
+
+      audio_names.each do |audio_name|
+        audio_sources = audio_files(audio_name).map do |file|
+          Pathname.new(file).relative_path_from(Pathname.new(public_path)).to_s
+        end
+        yield(audio_name, audio_sources)
       end
     end
 
-    def audio_files_by_type(type = 'ogg') 
-      Dir[audios_path_for(type)]
+    def audio_types
+      %w(ogg mp3)
     end
 
-    def audios_path_for(type)
-      File.join(audios_path, "*.#{type}")
+    def audio_files(prefix = "")
+      Dir[File.join(audios_path, "#{prefix}*")]
     end
 
     def root_path
-      File.join(File.dirname(__FILE__), "../")
+      File.expand_path(File.join(File.dirname(__FILE__), "../"))
     end
-    
+
     def public_path
       File.join(root_path, "public")
     end
