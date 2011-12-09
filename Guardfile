@@ -1,3 +1,7 @@
+
+require './lib/helpers'
+
+
 # SASS
 guard 'sass', :input => 'source/stylesheets', :output => 'public/stylesheets'
 
