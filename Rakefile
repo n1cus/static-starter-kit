@@ -10,16 +10,16 @@ task :bootstrap do
   STDOUT.puts "Gonna create repository on: #{remote_url}"  
   
   command = []
-  command << "cd #{current_directory}"
+  command << "cd '#{current_directory}'"
   command << "cd .."
   command << "git clone --bare #{project_name} #{project_name}.git"
   command << "scp -r #{project_name}.git #{remote_url}"
   command << "rm -fR #{project_name} #{project_name}.git"
   command << "git clone #{remote_url} #{project_name}"
-  command << "cd #{project_name}"
+  command << "cd '#{project_name}'"
   command << "git init"
   command << "git add ."
-  command << "git commit -am 'Initial Import"
+  command << "git commit -am 'Initial Import'"
   command << "git push"
   
   final_command = command.join(" && ")
