@@ -7,3 +7,5 @@ gem 'guard-haml'
 gem 'haml'
 gem 'guard-sass'
 gem 'sass'
+gem 'rake'
+

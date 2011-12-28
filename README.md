@@ -1,4 +1,8 @@
-# Mr. Incredible Sound Pad
+# Starter Kit
 
-This is a silly thing. 
 
+## Usage
+
+rake bootstrap
+
+    
