@@ -26,7 +26,8 @@ task :bootstrap do
   final_command = command.join(" && ")
   STDOUT.puts "Executing #{final_command}"
   system final_command
-  STDOUT.puts "done!"  
+  STDOUT.puts "-----------------------------------------"
+  STDOUT.puts "Your new repository is: #{remote_url}"
 end
 
 
