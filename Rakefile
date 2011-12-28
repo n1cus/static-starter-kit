@@ -8,7 +8,7 @@ task :bootstrap do
   remote_path = ask("Remote Path", default: "/home/deploy/repositories")
   remote_name = ask("Remote NAME", default: project_name)
     
-  remote_url = "#{remote_user}@#{remote_host}:#{remote_path}/#{project_name}.git"
+  remote_url = "#{remote_user}@#{remote_host}:#{remote_path}/#{remote_name}.git"
   STDOUT.puts "Gonna create repository on: #{remote_url}"  
   
   command = []
