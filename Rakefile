@@ -17,6 +17,10 @@ task :bootstrap do
   command << "rm -fR #{project_name} #{project_name}.git"
   command << "git clone #{remote_url} #{project_name}"
   command << "cd #{project_name}"
+  command << "git init"
+  command << "git add ."
+  command << "git commit -am 'Initial Import"
+  command << "git push"
   
   final_command = command.join(" && ")
   STDOUT.puts "Executing #{final_command}"
