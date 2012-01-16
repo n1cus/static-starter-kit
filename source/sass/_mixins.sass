@@ -1,0 +1,91 @@
+
+@mixin transition($property:all, $time:1s)
+  transition: $property $time
+  -moz-transition: $property $time
+  -webkit-transition: $property $time
+  -o-transition: $property $time
+  
+@mixin opacity($opacity)
+  opacity: $opacity / 100
+  -moz-opacity: $opacity / 100
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity})
+  filter: alpha(opacity=#{$opacity})
+  zoom: 1
+
+// @mixin pie
+//   behavior: url('/javascripts/3rdparty/PIE.htc')
+
+@mixin rounded($radius)
+  -moz-border-radius: $radius  /* FF1+ */
+  -webkit-border-radius: $radius /* Saf3-4 */
+  border-radius: $radius /* Opera 10.5, IE9, Saf5, Chrome */
+  // @include pie
+
+@mixin rounded-uneven($TL, $TR, $BR, $BL)
+  -webkit-border-top-left-radius: $TL
+  -webkit-border-top-right-radius: $TR
+  -webkit-border-bottom-right-radius: $BR
+  -webkit-border-bottom-left-radius: $BL
+  -moz-border-radius-topleft: $TL
+  -moz-border-radius-topright: $TR
+  -moz-border-radius-bottomright: $BR
+  -moz-border-radius-bottomleft: $BL
+  border-top-left-radius: $TL
+  border-top-right-radius: $TR
+  border-bottom-right-radius: $BR
+  border-bottom-left-radius: $BL
+
+@mixin box-shadow($h-shadow : 1px, $v-shadow : 0, $blur : 0, $color: black, $inset : false) 
+  $full :  $color $h-shadow $v-shadow $blur
+  @if $inset
+    @if not ($inset == true or $inset == inset)
+      @warn "$inset expected to be true or the inset keyword. Got #{$inset} instead. The box shadow will be inset."
+    $full : $full inset  
+  -moz-box-shadow: $full
+  -webkit-box-shadow: $full
+  box-shadow: $full
+  // @include pie
+  
+@mixin box-shadow-double($h-shadow : 1px, $v-shadow : 0, $blur : 0, $color: black, $inset: false, $h-shadow2 : 1px, $v-shadow2 : 0, $blur2 : 0, $color2: black, $inset2: false) 
+  $full : $color $h-shadow $v-shadow $blur
+  @if $inset
+    @if not ($inset == true or $inset == inset)
+      @warn "$inset expected to be true or the inset keyword. Got #{$inset} instead. The box shadow will be inset."
+    $full : $full inset
+    
+  $full2 :  $color2 $h-shadow2 $v-shadow2 $blur2
+  @if $inset2
+    @if not ($inset2 == true or $inset2 == inset)
+      @warn "$inset2 expected to be true or the inset keyword. Got #{$inset2} instead. The box shadow will be inset."
+    $full2 : $full2 inset
+    
+  -moz-box-shadow: #{$full}, #{$full2}
+  -webkit-box-shadow: #{$full}, #{$full2}
+  box-shadow: #{$full}, #{$full2}  
+
+@mixin gradient($from : black, $to : white)
+  background-color: $from
+  background-image: -moz-linear-gradient(top, $from, $to)
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, $from),color-stop(1, $to))
+  background-image: linear-gradient(top, $from, $to)
+  -pie-background: linear-gradient($from, $to)
+  // @include pie
+  
+@mixin gradient-horizontal($from, $to)
+  background: $from
+  background: -moz-linear-gradient(left, $from 0%, $to 100%)
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,$from), color-stop(100%,$to))
+  -pie-background: linear-gradient($from, $to)
+  // @include pie
+  
+  
+@mixin text_shadow($horizontal : 1px, $vertical : 1px, $blur : 0, $color : black)  
+  text-shadow: $horizontal $vertical $blur $color
+  -webkit-text-shadow: $horizontal $vertical $blur $color
+  // @include pie
+
+@mixin center($width : 100%)
+  margin: 
+    left: auto
+    right: auto
+  width: $width
