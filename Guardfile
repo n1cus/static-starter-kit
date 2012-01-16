@@ -1,7 +1,7 @@
 require './lib/helpers'
 
 # SASS
-guard 'sass', :input => 'source/stylesheets', :output => 'public/stylesheets'
+guard 'sass', :input => 'source/sass', :output => 'public/stylesheets'
 
 # CoffeeScript
 guard 'coffeescript', :input => 'source/javascripts', :output => 'public/javascripts', :bare => true
