@@ -1,8 +1,8 @@
-@mixin transition($property:all, $time:1s)
-  transition: $property $time
-  -moz-transition: $property $time
-  -webkit-transition: $property $time
-  -o-transition: $property $time
+@mixin transition($property:all, $time:1s, $ease:ease)
+  transition: $property $time $ease
+  -moz-transition: $property $time $ease
+  -webkit-transition: $property $time $ease
+  -o-transition: $property $time $ease
   
 @mixin opacity($opacity)
   opacity: $opacity / 100
