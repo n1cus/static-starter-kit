@@ -6,6 +6,6 @@ gem "therubyracer", "~> 0.11.4", require: 'v8'
 gem 'guard-haml'
 gem 'haml'
 gem 'guard-sass'
-gem 'sass'
+gem 'sass', '3.2.12'
 gem 'rake'
 
