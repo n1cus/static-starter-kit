@@ -1,6 +1,5 @@
 module StarterKit
   module Helpers
-
   end
 end
 
