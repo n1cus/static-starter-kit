@@ -6,6 +6,10 @@
   -webkit-transition: $transition
   -o-transition: $transition
   
+@mixin transition-delay($delay)
+  transition-delay: $delay
+  -webkit-transition-delay: $delay
+  
 // Yeah Mr. White! EASINGS!
 $easeInOutBack: cubic-bezier(0.680, -0.550, 0.265, 1.550)
 $easeInOutCirc: cubic-bezier(0.785, 0.135, 0.150, 0.860)
