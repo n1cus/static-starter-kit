@@ -1,8 +1,10 @@
-@mixin transition($property:all, $time:1s, $ease:ease)
-  transition: $property $time $ease
-  -moz-transition: $property $time $ease
-  -webkit-transition: $property $time $ease
-  -o-transition: $property $time $ease
+@mixin transition($transition...)
+  @if length($transition) == 0
+    $transition: all 0.5s ease
+  transition: $transition
+  -moz-transition: $transition
+  -webkit-transition: $transition
+  -o-transition: $transition
   
 // Yeah Mr. White! EASINGS!
 $easeInOutBack: cubic-bezier(0.680, -0.550, 0.265, 1.550)
