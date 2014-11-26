@@ -1,0 +1,10 @@
+rake
+tmp
+*.un~
+*.swp
+*.DS_Store
+.sass-cache/*
+public/.DS_Store
+public/images/.DS_Store
+public/javascripts/.DS_Store
+source/.DS_Store
